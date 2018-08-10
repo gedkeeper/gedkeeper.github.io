@@ -1,44 +1,55 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset='utf-8' />
-    <meta http-equiv="X-UA-Compatible" content="chrome=1" />
-    <meta name="description" content="Slate is a responsive theme for GitHub Pages" />
+<head>
+<meta charset='utf-8' />
+<meta http-equiv="X-UA-Compatible" content="chrome=1" />
+<meta name="description" content="Slate is a responsive theme for GitHub Pages" />
+<link rel="stylesheet" type="text/css" media="screen" href="stylesheets/stylesheet.css">
+<title>GEDKeeper</title>
+</head>
 
-    <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/stylesheet.css">
+<body>
+<div id="header_wrap" class="outer">
+<header class="inner">
+<a id="forkme_banner" href="https://github.com/serg-norseman/gedkeeper" target="_blank">View on GitHub</a>
+<a id="lang_banner" href="index_rus.html">Русский</a>
+<h1 id="project_title">GEDKeeper</h1>
+<h2 id="project_tagline">program for work with personal genealogical database</h2>
+<section id="downloads">
+<a class="zip_download_link" href="https://sourceforge.net/projects/gedkeeper/files/v2.14.0/gedkeeper_2.14.0_win.zip/download">Download this project as a .zip file</a>
+<a class="tar_download_link" href="https://sourceforge.net/projects/gedkeeper/files/v2.14.0/gedkeeper_2.14.0-1_all.deb/download">Download this project as a tar.gz file</a>
+</section>
+</header>
+</div>
 
-    <title>GEDKeeper</title>
-  </head>
+<div id="main_content_wrap" class="outer">
+<section id="main_content" class="inner">
 
-  <body>
-    <div id="header_wrap" class="outer">
-        <header class="inner">
-          <a id="forkme_banner" href="https://github.com/serg-norseman/gedkeeper" target="_blank">View on GitHub</a>
-          <a id="lang_banner" href="index_rus.html">Русский</a>
+<p>GEDKeeper program is developed for work with personal genealogical database.</p>
 
-          <h1 id="project_title">GEDKeeper</h1>
-          <h2 id="project_tagline">program for work with personal genealogical database</h2>
+<p>The program is designed for extremely simple and intuitive interface. The program is very easy to install on the computer, 
+fully supports the GEDCOM format, has no restrictions on the number of persons and generations, allows you to generate pedigrees, 
+building several tree species, as well as print and save their images, provides fast navigation, filtering, searching and adding multimedia materials. 
+In addition there is an output of geographic data on Google maps (© Google).</p>
 
-          <section id="downloads">
-            <a class="zip_download_link" href="https://sourceforge.net/projects/gedkeeper/files/v2.13.2/gedkeeper_2.13.2_win.zip/download">Download this project as a .zip file</a>
-            <a class="tar_download_link" href="https://sourceforge.net/projects/gedkeeper/files/v2.13.2/gedkeeper_2.13.2-1_all.deb/download">Download this project as a tar.gz file</a>
-          </section>
-        </header>
-    </div>
+<p>The aim of the program is as quick and effective means of conducting personal genealogical database.</p>
 
-    <div id="main_content_wrap" class="outer">
-      <section id="main_content" class="inner">
+<h1>News</h1>
 
-		<p>GEDKeeper program is developed for work with personal genealogical database.</p>
-
-		<p>The program is designed for extremely simple and intuitive interface. The program is very easy to install on the computer, 
-		fully supports the GEDCOM format, has no restrictions on the number of persons and generations, allows you to generate pedigrees, 
-		building several tree species, as well as print and save their images, provides fast navigation, filtering, searching and adding multimedia materials. 
-		In addition there is an output of geographic data on Google maps (© Google).</p>
-
-		<p>The aim of the program is as quick and effective means of conducting personal genealogical database.</p>
-
-		<h1>News</h1>
+<h6>10/08/2018</h6>
+<p>Released version v2.14.0</p><p><ul>
+<li>(*) Fixed the bug with adding/removing portraits of persons.
+<li>(+) Returned the status bar to the chart's windows and added information about the size of the image.
+<li>(*) Fixed bug of loading FTBv6 files with the encoding Win1251 (ANSI + Rus).
+<li>(*) Improved collapsing tree branches.
+<li>(*) Fixed several minor bugs and simplified development projects.
+<li>(+) Finalized and included the generator of the Tree Album.
+<li>(+) Added the option of circle charts: arc text on/off.
+<li>(+) Added options for tree charts: margins, intervals between branches and intervals between generations.
+<li>(+) Added options for tree charts: hide unknown spouses and show birth and death places.
+<li>(*) Restored the work of the maps module.
+<li>(+) Implemented portable mode of the program.
+</ul></p>
 
 <h6>14/07/2018</h6>
 <p>Released version v2.13.2</p><p><ul>
@@ -86,236 +97,50 @@
 GEDCOM files, which led to import problems in other programs.
 </ul></p>
 
-<h6>17/06/2017</h6>
-<p>Released version v2.12.0</p><p><ul>
-<li> Created the Chinese translation [Cui Jianquan (崔建全)].
-<li> Created the German translation [Gleb Buzhinsky].
-<li> The way in the interface for working with multiple files is changed 
-from MDI to SDI (preparation for the future full porting).
-<li> Considerable redesign of the program architecture.
-<li> Created the Italian translation of the program [Amalia Boffa].
-<li> Various minor improvements.
-<li> Fixed error sending error log in Ubuntu 1604 LTS (Unity).
-<li> Added a new plugin "Chronicle of events".
-<li> Fixed saving of column widths in the list of individual records.
-<li> Improved checking and excluding the second instance of the program.
-<li> Improved operation of the record lists and processing of the columns.
-<li> Implemented the formatting of text notes.
-<li> Automatic replacement of direct links paths to multimedia files 
-when using the program simultaneously between two operating systems (Windows / Linux);
-you need to manually edit the file of paths.
-<li> Implemented display of progression when adding very large media files.
-<li> Implemented option to disable the ability to add multimedia files with direct links.
-<li> Replacement of absolute paths to multimedia files is realized when using
- the program and databases between Windows and Linux (for advanced users).
-<li> Fixed the cache of portraits in case of two links to one photo.
-</ul></p>
+<a href="old_news.html" target="_blank">... old news</a>
 
-<h6>28/02/2017</h6>
-<p>Released version v2.11.0</p><p><ul>
-<li>(+) Added French localization (thanks to Diana Shilnikova).</li>
-<li>(+) Added images cache for portraits. This improves tree chart performance
-with large number of attached portraits.</li>
-<li>(*) Partially fixed the issue with access to media files when user switches
-between two different operating systems - Linux and Microsoft
-Windows (the issue was fixed only for relative paths).</li>
-<li>(+) GEDKeeper is ready to introduce tips with national holidays.</li>
-<li>(*) Updated photo displaying in the media viewer.</li>
-<li>(*) Optimized the lists and added sorting arrow icons.</li>
-<li>(+) Implemented VLC-based internal media player (VLC must be
-installed separately).</li>
-<li>(+) Added a new warning (and option to disable the warning) when
-user adds a media file from removable disk.</li>
-<li>(+) Added a new option to disable reopening of the most recent opened
-databases on the program startup.</li>
-<li>(~) Included YAML-parser implementation to process external databases and
-configurations.</li>
-<li>(+) Added ability to print a circle chart with print preview available.</li>
-<li>(!) Improved charts rendering, zooming, scrolling and navigation inside
-circle and tree charts [ruslangaripov].</li>
-<li>(+) Added new control to manage number of visible generations in a tree
-chart.</li>
-<li>(!) Improved the popup control for tree chart zooming [ruslangaripov].</li>
-<li>(*) Fixed HOME directory processing error occurred after new operating
-system has been installed (both Linux and Microsoft Windows).</li>
-<li>(+) Added generating and exporting of a new document type -- &quot;Album of
-Trees&quot;.</li>
-<li>(!) &quot;GEDKeeper GUI localization manual&quot; was updated and translated
-to English [ruslangaripov].</li>
-<li>(!) GUI improved within tree editor, person portraits management and
-setting up default portraits showing in the tree [IT].</li>
-<li>(*) Made small improvements and optimizations.</li>
-<li>(*) Considered more national language features aware of name
-processing.</li>
-</ul></p>
+<a name="downloads"><h2>Download releases</h2></a>
 
-<h6>26/12/2016</h6>
-<p>Released version v2.10.0</p><p><ul>
-<li>(+) Added a geocoding engine (Yandex) and their choice in the options (Google/Yandex).
-<li>(*) Restored search for locations in the editor of locations and window of maps (GoogleAPI).
-<li>(+) Added language selection in the properties of the GEDCOM file.
-<li>(-) Save files in any encoding except UTF-8 are deprecated and disabled.
-<li>(+) Added check for updates on the website sourceforge.net.
-</ul></p>
+<table>
+<tr>
+<th>Version</th>
+<th><p><img src="images/menuwin.png" align="absmiddle"/>&nbsp;Windows</p></th>
+<th><p><img src="images/menutux.png" align="absmiddle"/>&nbsp;Linux</p></th>
+</tr>
+<tr>
+<td>v2.14.0</td>
+<td><a href="https://sourceforge.net/projects/gedkeeper/files/v2.14.0/gedkeeper_2.14.0_win.zip/download" target="_blank">gedkeeper_2.14.0_win.zip</a></td>
+<td><a href="https://sourceforge.net/projects/gedkeeper/files/v2.14.0/gedkeeper_2.14.0-1_all.deb/download" target="_blank">gedkeeper_2.14.0-1_all.deb</a></td>
+</tr>
+<tr>
+<td>v2.13.2</td>
+<td><a href="https://sourceforge.net/projects/gedkeeper/files/v2.13.2/gedkeeper_2.13.2_win.zip/download" target="_blank">gedkeeper_2.13.2_win.zip</a></td>
+<td><a href="https://sourceforge.net/projects/gedkeeper/files/v2.13.2/gedkeeper_2.13.2-1_all.deb/download" target="_blank">gedkeeper_2.13.2-1_all.deb</a></td>
+</tr>
+<tr>
+<td>v2.13.1</td>
+<td><a href="https://sourceforge.net/projects/gedkeeper/files/v2.13.1/gedkeeper_2.13.1_win.zip/download" target="_blank">gedkeeper_2.13.1_win.zip</a></td>
+<td><a href="https://sourceforge.net/projects/gedkeeper/files/v2.13.1/gedkeeper_2.13.1-1_all.deb/download" target="_blank">gedkeeper_2.13.1-1_all.deb</a></td>
+</tr>
+<tr>
+<td>v2.13.0</td>
+<td><a href="https://sourceforge.net/projects/gedkeeper/files/v2.13.0/gedkeeper_2.13.0_win.zip/download" target="_blank">gedkeeper_2.13.0_win.zip</a></td>
+<td><a href="https://sourceforge.net/projects/gedkeeper/files/v2.13.0/gedkeeper_2.13.0-1_all.deb/download" target="_blank">gedkeeper_2.13.0-1_all.deb</a></td>
+</tr>
+<tr>
+<td>v2.12.0</td>
+<td><a href="https://sourceforge.net/projects/gedkeeper/files/v2.12.0/gedkeeper_2.12.0_win.zip/download" target="_blank">gedkeeper_2.12.0_win.zip</a></td>
+<td><a href="https://sourceforge.net/projects/gedkeeper/files/v2.12.0/gedkeeper_2.12.0-1_all.deb/download" target="_blank">gedkeeper_2.12.0-1_all.deb</a></td>
+</tr>
+</table>
 
-<h6>18/12/2016</h6>
-<p>Released version v2.9.0</p><p><ul>
-<li>(+) Added localization for Polish (Jacek).
-<li>(*) Fixed problems with European encodings of GEDCOM files.
-<li>(*) Small adaptation of import from the Ahnenblatt.
-<li>(+) Allow to process and edit maiden and married last names of women. Add several printing formats for such names.
-<li>(+) Improve culture-specific and culture-independent processing of names. Prepare a framework to attach languages to names and store this in a database.
-<li>(+) Combine GUI dialogs "Adding person" and "Edit person".
-<li>(+) Add new types of facts: blood group, hair color and eyes color.
-<li>(+) Add demo databases for the Bach and Nehru–Gandhi families.
-<li>(+) Add demo databases for mitochondrial and Y-chromosome gaplogroups (for ones who are keen on molecular genealogy).
-<li>(+) To improve modifications safety, GEDKeeper locks a record while user is changing it.
-<li>(+) Implement modifications canceling after changes have been made in editing GUI dialogs.
-<li>(*) Fix application behavior after clicking buttons that change parents or parents’ families while user is changing a person in the GUI editor.
-<li>(*) Improve supporting of multi-monitor configurations.
-<li>(*) Made a static analysis of the source code – fix over 60 possible defects and errors.
-<li>(*) Fix many small issues and improve overall application stability.
-<li>(*) Fix some errors.
-<li>(*) Use Russian name declination in birthday notifications and calculator of relation degree.
-<li>(*) Improve birthday notifications displaying.
-<li>(*) Fix behavior of child MDI (database) windows.
-<li>(*) Improve calculation of UDN and dates sorting when mixing calendar types.
-<li>(*) Improve English localization.
-<li>(+) Add calculator of relation degree.
-</ul></p>
+</section>
+</div>
 
-<h6>03/09/2016</h6>
-<p>Released version v2.8.1</p><p><ul>
-<li>(*) Correct English localization of the user interface.</li>
-<li>(+) Add preliminary version of demonstration database for USA users (President).</li>
-<li>(*) Refine and optimize the source code, fix some errors. GEDKeeper
-successfully passed a stress test processing a database with more than 60,000 people.</li>
-<li>(!) Change default interface language to English to improve further
-internationalization of GEDKeeper.</li>
-<li>(*) Move the question with calendars to a completion state.</li>
-<li>(*) Begin unification of a part of the source code that handles locale-specific processing of people names.</li>
-<li>(+) Add demonstration database for Russian users (Pushkin's family).</li>
-<li>(+) Add prototype of the new plug-in: &quot;Navigator&quot;.</li>
-</ul></p>
-
-<h6>14/08/2016</h6>
-<p>Released version v2.8.0</p><p><ul>
-<li>(+) Clean and optimize code.
-<li>(+) Included are a selection of the interface language at first run after installation.
-<li>(+) Implemented selection of portraits from photos.
-</ul></p>
-
-<h6>31/07/2016</h6>
-<p>Released version v2.7.0</p>
-<p><ul>
-<li>(+) Added a diagram of the circle of descendants.
-<li>(*) Improved options of the circle of ancestors.
-<li>(+) Added generation of ascending pedigrees (ancestors).
-<li>(*) Fixed minor bugs.
-<li>(+) Added periodic autosave.
-<li>(*) In the installer for Windows added support for switching languages.
-<li>(+) Added backup of files before saving.
-<li>(*) Fixed display of links in location information.
-		</ul></p>
-
-		<h6>20/06/2016</h6>
-		<p>Released version v2.6.0</p>
-		<p><ul>
-<li>(+) Added English localization of help.
-<li>(+) Export pedigrees to RTF.</li>
-<li>(!) Add package for distribution on Debian/Ubuntu Linux.</li>
-<li>(!) Add Mono-supporting (Linux).</li>
-<li>(!) Add new unique framework for unified encoding and sorting dates
-in any calendar, with any precision.</li>
-<li>(*) Restore html-pedigree generation to be compatible with Linux.</li>
-<li>(*) Simplify help content down to html only to improve Linux
-compatible (help content has no CHM files).</li>
-<li>(+) Add a function to duplicate person entries (for cases when you
-need to share data between two entire namesakes).</li>
-<li>(+) Add context menu to tables in the main work window.</li>
-<li>(+) Show calendar label for a date.</li>
-<li>(-) Remove supporting of Ansel GEDCOM encoding.</li>
-<li>(+) Add ability to edit several names of one person.</li>
-<li>(+) Add new statistics: demography, death-rate estimation for men
-and women on each five years of age.</li>
-<li>(*) Fix incorrect tree output happened in some modes.</li>
-<li>(*) Improve personal records merger.</li>
-<li>(*) Fix notes filtering, when adding into other records.</li>
-<li>(*) Fix small error on displaying person's associations.</li>
-<li>(*) Improve plug-in for 3D rendering of tree, but there is a lot
-more work to do (need a collaborator get used to 3D and dynamic
-transformation programming).</li>
-<li>(*) Implement many small fixes and code improvements (speed, safety
-and stability).</li>
-		</ul></p>
-
-        <a name="downloads"><h2>Download releases</h2></a>
-
-        <table>
-        <tr>
-          <th>Version</th>
-          <th><p><img src="images/menuwin.png" align="absmiddle"/>&nbsp;Windows</p></th>
-          <th><p><img src="images/menutux.png" align="absmiddle"/>&nbsp;Linux</p></th>
-        </tr>
-        <tr>
-          <td>v2.13.2</td>
-          <td><a href="https://sourceforge.net/projects/gedkeeper/files/v2.13.2/gedkeeper_2.13.2_win.zip/download" target="_blank">gedkeeper_2.13.2_win.zip</a></td>
-          <td><a href="https://sourceforge.net/projects/gedkeeper/files/v2.13.2/gedkeeper_2.13.2-1_all.deb/download" target="_blank">gedkeeper_2.13.2-1_all.deb</a></td>
-        </tr>
-        <tr>
-          <td>v2.13.1</td>
-          <td><a href="https://sourceforge.net/projects/gedkeeper/files/v2.13.1/gedkeeper_2.13.1_win.zip/download" target="_blank">gedkeeper_2.13.1_win.zip</a></td>
-          <td><a href="https://sourceforge.net/projects/gedkeeper/files/v2.13.1/gedkeeper_2.13.1-1_all.deb/download" target="_blank">gedkeeper_2.13.1-1_all.deb</a></td>
-        </tr>
-        <tr>
-          <td>v2.13.0</td>
-          <td><a href="https://sourceforge.net/projects/gedkeeper/files/v2.13.0/gedkeeper_2.13.0_win.zip/download" target="_blank">gedkeeper_2.13.0_win.zip</a></td>
-          <td><a href="https://sourceforge.net/projects/gedkeeper/files/v2.13.0/gedkeeper_2.13.0-1_all.deb/download" target="_blank">gedkeeper_2.13.0-1_all.deb</a></td>
-        </tr>
-        <tr>
-          <td>v2.12.0</td>
-          <td><a href="https://sourceforge.net/projects/gedkeeper/files/v2.12.0/gedkeeper_2.12.0_win.zip/download" target="_blank">gedkeeper_2.12.0_win.zip</a></td>
-          <td><a href="https://sourceforge.net/projects/gedkeeper/files/v2.12.0/gedkeeper_2.12.0-1_all.deb/download" target="_blank">gedkeeper_2.12.0-1_all.deb</a></td>
-        </tr>
-        <tr>
-          <td>v2.11.0</td>
-          <td><a href="https://sourceforge.net/projects/gedkeeper/files/v2.11.0/gedkeeper_2.11.0_win.zip/download" target="_blank">gedkeeper_2.11.0_win.zip</a></td>
-          <td><a href="https://sourceforge.net/projects/gedkeeper/files/v2.11.0/gedkeeper_2.11.0-1_all.deb/download" target="_blank">gedkeeper_2.11.0-1_all.deb</a></td>
-        </tr>
-        <tr>
-          <td>v2.10.0</td>
-          <td><a href="https://github.com/Serg-Norseman/GEDKeeper/releases/download/v2.10.0/gedkeeper_2.10.0_win.zip" target="_blank">gedkeeper_2.10.0_win.zip</a></td>
-          <td><a href="https://github.com/Serg-Norseman/GEDKeeper/releases/download/v2.10.0/gedkeeper_2.10.0-1_all.deb" target="_blank">gedkeeper_2.10.0-1_all.deb</a></td>
-        </tr>
-        <tr>
-          <td>v2.9.0</td>
-          <td><a href="https://github.com/Serg-Norseman/GEDKeeper/releases/download/v2.9.0/gedkeeper_2.9.0_win.zip" target="_blank">gedkeeper_2.9.0_win.zip</a></td>
-          <td><a href="https://github.com/Serg-Norseman/GEDKeeper/releases/download/v2.9.0/gedkeeper_2.9.0-1_all.deb" target="_blank">gedkeeper_2.9.0-1_all.deb</a></td>
-        </tr>
-        <tr>
-          <td>v2.8.1</td>
-          <td><a href="https://github.com/Serg-Norseman/GEDKeeper/releases/download/v2.8.1/gedkeeper_2.8.1_win.zip" target="_blank">gedkeeper_2.8.1_win.zip</a></td>
-          <td><a href="https://github.com/Serg-Norseman/GEDKeeper/releases/download/v2.8.1/gedkeeper_2.8.1-1_all.deb" target="_blank">gedkeeper_2.8.1-1_all.deb</a></td>
-        </tr>
-        <tr>
-          <td>v2.7.0</td>
-          <td><a href="https://github.com/Serg-Norseman/GEDKeeper/releases/download/v2.7.0/GEDKeeper2-v2.7.0-win.zip" target="_blank">GEDKeeper2-v2.7.0-win.zip</a></td>
-          <td><a href="https://github.com/Serg-Norseman/GEDKeeper/releases/download/v2.7.0/gedkeeper_2.7.0-1_all.deb" target="_blank">gedkeeper_2.7.0-1_all.deb</a></td>
-        </tr>
-        <tr>
-          <td>v2.6.0</td>
-          <td><a href="https://github.com/Serg-Norseman/GEDKeeper/releases/download/v2.6.0/GEDKeeper2-v2.6.0-win.zip" target="_blank">GEDKeeper2-v2.6.0-win.zip</a></td>
-          <td><a href="https://github.com/Serg-Norseman/GEDKeeper/releases/download/v2.6.0/gedkeeper_2.6.0-1_all.deb" target="_blank">gedkeeper_2.6.0-1_all.deb</a></td>
-        </tr>
-        </table>
-        
-      </section>
-    </div>
-
-    <div id="footer_wrap" class="outer">
-      <footer class="inner">
-        <p class="copyright">GEDKeeper maintained by <a href="mailto:gedkeeper@yandex.ru" target="_blank">Serg Zhdanovskih</a></p>
-      </footer>
-    </div>
-  </body>
+<div id="footer_wrap" class="outer">
+<footer class="inner">
+<p class="copyright">GEDKeeper maintained by <a href="mailto:gedkeeper@yandex.ru" target="_blank">Serg Zhdanovskih</a></p>
+</footer>
+</div>
+</body>
 </html>
