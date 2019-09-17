@@ -16,8 +16,8 @@
 <h1 id="project_title">GEDKeeper</h1>
 <h2 id="project_tagline">program for work with personal genealogical database</h2>
 <section id="downloads">
-<a class="zip_download_link" href="https://sourceforge.net/projects/gedkeeper/files/v2.15.0/gedkeeper_2.15.0_win.zip/download">Download this project as a .zip file</a>
-<a class="tar_download_link" href="https://sourceforge.net/projects/gedkeeper/files/v2.15.0/gedkeeper_2.15.0-1_all.deb/download">Download this project as a tar.gz file</a>
+<a class="zip_download_link" href="https://sourceforge.net/projects/gedkeeper/files/v2.16.2/gedkeeper_2.16.2_win.zip/download">Download this project as a .zip file</a>
+<a class="tar_download_link" href="https://sourceforge.net/projects/gedkeeper/files/v2.16.2/gedkeeper_2.16.2-1_all.deb/download">Download this project as a tar.gz file</a>
 </section>
 </header>
 </div>
@@ -35,6 +35,54 @@ In addition there is an output of geographic data on Google maps (© Google).</p
 <p>The aim of the program is as quick and effective means of conducting personal genealogical database.</p>
 
 <h1>News</h1>
+
+<h6>18/09/2019</h6>
+<p>Released version v2.16.2</p><p><ul>
+<li>(+) Implemented moving notes up and down [Milan Kosina].
+<li>(+) Implemented line wrapping in the HyperView of information panel.
+<li>(+) Added check for file existence when creating multimedia records.
+<li>(+) Added verification of the database for multimedia records (lack of files, archives, storages).
+<li>(+) Added support for relative paths to media files [Milan Kosina].
+<li>(*) Fixed the choice of the type of file storage in the multimedia dialog.
+<li>(+) Implemented the removal of multimedia files when deleting their records.
+<li>(*) Fixed event output if an additional event type is not specified.
+<li>(*) Fixed renaming and deleting of location records.
+<li>(*) Fixed merging family and individual records, transition buttons in editing dialogs, button images.
+<li>(*) Fixed editing dates of events with periods.
+<li>(+) Added new diagnostics for data verification: for families without spouses and/or children [Kevin D. Sandal].
+<li>(+) Added hotkey for saving files from tree diagrams.
+<li>(*) Fixed support for formats with zero IDs of records.
+<li>(*) Fixed opening files and OSM geocoder operation.
+<li>(*) Cleaning and optimization, improved support for two third-party GEDCOM formats.
+<li>(*) Fixed the script of the portable package.
+<li>(*) Fixed the work of the "Compare databases" tool.
+<li>(*) Fixed external viewing of PDF files (and other not supported by the embedded viewer).
+<li>(*) Proofreading of the English manual [Kevin D. Sandal].
+<li>(*) Implemented preliminary support for GedML format.
+<li>(*) Fixed pedigrees localization.
+<li>(*) Fixed Calendar plugin.
+<li>(*) Fixed overlapping of neighboring persons in tree diagrams.
+<li>(*) Fixed incorrect parsing of interpretable dates from Ahnenblatt.
+<li>(*) Fixed missing substructures in media records from extraneous files.
+<li>(*) Fixed convert links to sources in source records .
+<li>(*) Fixed convert media links to media records, and convert non-standard x-references.
+<li>(*) Fixed reading standard coordinates of the place.
+<li>(*) Minor improvement of circle chart.
+<li>(*) Improved support for several GEDCOM file formats.
+<li>(*) Fix of sorting the columns of some tables.
+<li>(*) Fix of long-distance displacement of male nodes (tree chart) in the presence of more than 
+one marriage and a large tree of descendants from the first wife.
+<li>(*) Improved date input in the event dialog with regional format settings.
+<li>(*) Bugfixes for FlowInput plugin.
+<li>(+) Added the possibility to create and connect plugins to replace record's edit dialogs.
+<li>(*) Restored loading recent files.
+<li>(+) Created a new plugin for managing "folders" in GEDCOM files (to separate work areas in large files).
+<li>(+) Added option to automatically detect charset of GEDCOM files at load.
+<li>(*) Fixed execution of Lua scripts.
+<li>(*) Reduced memory consumption when loading large files (25-42%).
+<li>(*) Optimized a number of functions, allowing to significantly increase the speed of loading and processing large files 
+(from 30 thousand records to very large files - 91mb, 538 thousand records, load time 25 seconds!).
+</ul></p>
 
 <h6>14/02/2019</h6>
 <p>Released version v2.15.0</p><p><ul>
@@ -121,6 +169,12 @@ GEDCOM files, which led to import problems in other programs.
 <th>Version</th>
 <th><p><img src="images/menuwin.png" align="absmiddle"/>&nbsp;Windows</p></th>
 <th><p><img src="images/menutux.png" align="absmiddle"/>&nbsp;Linux</p></th>
+</tr>
+<tr>
+<td>v2.16.2</td>
+<td><a href="https://sourceforge.net/projects/gedkeeper/files/v2.16.2/gedkeeper_2.16.2_win.zip/download" target="_blank">gedkeeper_2.16.2_win.zip</a><br>
+<a href="https://sourceforge.net/projects/gedkeeper/files/v2.16.2/gedkeeper_2.16.2_win_portable.zip/download" target="_blank">gedkeeper_2.16.2_win_portable.zip</a></td>
+<td><a href="https://sourceforge.net/projects/gedkeeper/files/v2.16.2/gedkeeper_2.16.2-1_all.deb/download" target="_blank">gedkeeper_2.16.2-1_all.deb</a></td>
 </tr>
 <tr>
 <td>v2.15.0</td>
