@@ -23,6 +23,130 @@
 
 <h1>Old News</h1>
 
+<h6>18/09/2019</h6>
+<p>Released version v2.16.2</p><p><ul>
+<li>(+) Implemented moving notes up and down [Milan Kosina].
+<li>(+) Implemented line wrapping in the HyperView of information panel.
+<li>(+) Added check for file existence when creating multimedia records.
+<li>(+) Added verification of the database for multimedia records (lack of files, archives, storages).
+<li>(+) Added support for relative paths to media files [Milan Kosina].
+<li>(*) Fixed the choice of the type of file storage in the multimedia dialog.
+<li>(+) Implemented the removal of multimedia files when deleting their records.
+<li>(*) Fixed event output if an additional event type is not specified.
+<li>(*) Fixed renaming and deleting of location records.
+<li>(*) Fixed merging family and individual records, transition buttons in editing dialogs, button images.
+<li>(*) Fixed editing dates of events with periods.
+<li>(+) Added new diagnostics for data verification: for families without spouses and/or children [Kevin D. Sandal].
+<li>(+) Added hotkey for saving files from tree diagrams.
+<li>(*) Fixed support for formats with zero IDs of records.
+<li>(*) Fixed opening files and OSM geocoder operation.
+<li>(*) Cleaning and optimization, improved support for two third-party GEDCOM formats.
+<li>(*) Fixed the script of the portable package.
+<li>(*) Fixed the work of the "Compare databases" tool.
+<li>(*) Fixed external viewing of PDF files (and other not supported by the embedded viewer).
+<li>(*) Proofreading of the English manual [Kevin D. Sandal].
+<li>(*) Implemented preliminary support for GedML format.
+<li>(*) Fixed pedigrees localization.
+<li>(*) Fixed Calendar plugin.
+<li>(*) Fixed overlapping of neighboring persons in tree diagrams.
+<li>(*) Fixed incorrect parsing of interpretable dates from Ahnenblatt.
+<li>(*) Fixed missing substructures in media records from extraneous files.
+<li>(*) Fixed convert links to sources in source records .
+<li>(*) Fixed convert media links to media records, and convert non-standard x-references.
+<li>(*) Fixed reading standard coordinates of the place.
+<li>(*) Minor improvement of circle chart.
+<li>(*) Improved support for several GEDCOM file formats.
+<li>(*) Fix of sorting the columns of some tables.
+<li>(*) Fix of long-distance displacement of male nodes (tree chart) in the presence of more than 
+one marriage and a large tree of descendants from the first wife.
+<li>(*) Improved date input in the event dialog with regional format settings.
+<li>(*) Bugfixes for FlowInput plugin.
+<li>(+) Added the possibility to create and connect plugins to replace record's edit dialogs.
+<li>(*) Restored loading recent files.
+<li>(+) Created a new plugin for managing "folders" in GEDCOM files (to separate work areas in large files).
+<li>(+) Added option to automatically detect charset of GEDCOM files at load.
+<li>(*) Fixed execution of Lua scripts.
+<li>(*) Reduced memory consumption when loading large files (25-42%).
+<li>(*) Optimized a number of functions, allowing to significantly increase the speed of loading and processing large files 
+(from 30 thousand records to very large files - 91mb, 538 thousand records, load time 25 seconds!).
+</ul></p>
+
+<h6>14/02/2019</h6>
+<p>Released version v2.15.0</p><p><ul>
+<li>(+) Added control unit for several families of parents and for the type of child/parent linkage (adoption, foster, etc.).
+<li>(*) Improved handling of parts of names.
+<li>(+) Added option to disable checking for a valid tree size (in most cases, checking is outdated, but can sometimes be useful).
+<li>(+) Added saving and restoring selected sorting columns in tables.
+<li>(+) Added the feature to disable the sorting of children and enable sorting of spouses for family's records.
+<li>(+) Added the feature to select colors for persons in tree charts.
+<li>(+) Created the Czech translation [Michal Novák].
+<li>(+) Added GKTray application (birthdays reminder and recent files manager).
+<li>(+) Added detection of data loops.
+<li>(*) Fixed minor bugs.
+<li>(+) Added new validations of data.
+</ul></p>
+
+<h6>10/08/2018</h6>
+<p>Released version v2.14.0</p><p><ul>
+<li>(*) Fixed the bug with adding/removing portraits of persons.
+<li>(+) Returned the status bar to the chart's windows and added information about the size of the image.
+<li>(*) Fixed bug of loading FTBv6 files with the encoding Win1251 (ANSI + Rus).
+<li>(*) Improved collapsing tree branches.
+<li>(*) Fixed several minor bugs and simplified development projects.
+<li>(+) Finalized and included the generator of the Tree Album.
+<li>(+) Added the option of circle charts: arc text on/off.
+<li>(+) Added options for tree charts: margins, intervals between branches and intervals between generations.
+<li>(+) Added options for tree charts: hide unknown spouses and show birth and death places.
+<li>(*) Restored the work of the maps module.
+<li>(+) Implemented portable mode of the program.
+</ul></p>
+
+<h6>14/07/2018</h6>
+<p>Released version v2.13.2</p><p><ul>
+<li>(*) Fixed the bug of reading standard GEDCOM notes.
+</ul></p>
+
+<h6>28/06/2018</h6>
+<p>Released version v2.13.1</p><p><ul>
+<li>(+) Implemented the saving of circle charts in SVG.
+<li>(*) Fixed bug in the tree's chart with folding of branches.
+<li>(*) Fixed bug in the plugin "History Data".
+<li>(*) Fixed bug in the plugin "Data quality".
+<li>(+) Added option "Automatically check for updates".
+<li>(*) Fixed bug of loading of files "Agelong Tree" with incorrect encoding ANSEL.
+<li>(*) Fixed a crash in checking for new versions in WinXP.
+</ul></p>
+
+<h6>08/06/2018</h6>
+<p>Released version v2.13.0</p><p><ul>
+<li>(+) Added the folding of tree branches.
+<li>(*) The generator "Family Book" has been revised.
+<li>(+) Added option of displaying dates of marriages in tree diagrams.
+<li>(+) Added the inverted tree mode (ancestors at the bottom, descendants at the top).
+<li>(+) Added control keys for the number of generations displayed in circle charts.
+<li>(*) Fixed drawing of background of circle charts when outputting to a file.
+<li>(*) Fixed working of option "Hide empty segments" in circle charts.
+<li>(+) Added reports "Phonetics" and "Contemporaries".
+<li>(+) Created the first reporting plugin (reports "Frequency of names" and
+"Personal events").
+<li>(+) Created the subsystem of external reporting plugins.
+<li>(*) Fixed auto-scrolling of tree diagram when clicking on personal record.
+<li>(+) Added an examples of the databases "The Human Origins" (rus, lat) and 
+"Ancient Kingdoms" (rus).
+<li>(+) Added a new plugin "History Data (links)".
+<li>(+) Added support for editing names in different languages.
+<li>(+) Added support for saving a snapshot of a tree in SVG format.
+<li>(+) Rpm-packages for Fedora / Rosa Linux are added.
+<li>(+) Added a new geocoder (OSM).
+<li>(+) Added a new plugin "Data Quality".
+<li>(+) Added possibility of highlighting portraits on general photos.
+<li>(*) Restored supporting of Ansel GEDCOM encoding.
+<li>(*) Fixed minor translation errors.
+<li>(+) Added a new plugin "WordsCloud".
+<li>(*) Fixed the problem of extra lines in family records while saving
+GEDCOM files, which led to import problems in other programs.
+</ul></p>
+
 <h6>17/06/2017</h6>
 <p>Released version v2.12.0</p><p><ul>
 <li> Created the Chinese translation [Cui Jianquan (崔建全)].
@@ -185,6 +309,54 @@ transformation programming).</li>
 <li>(*) Implement many small fixes and code improvements (speed, safety
 and stability).</li>
 </ul></p>
+
+<a name="downloads"><h2>Download releases</h2></a>
+
+<table>
+<tr>
+<th>Version</th>
+<th><p><img src="images/menuwin.png" align="absmiddle"/>&nbsp;Windows</p></th>
+<th><p><img src="images/menutux.png" align="absmiddle"/>&nbsp;Linux</p></th>
+</tr>
+<tr>
+<td>v2.16.2</td>
+<td><a href="https://sourceforge.net/projects/gedkeeper/files/v2.16.2/gedkeeper_2.16.2_win.zip/download" target="_blank">gedkeeper_2.16.2_win.zip</a><br>
+<a href="https://sourceforge.net/projects/gedkeeper/files/v2.16.2/gedkeeper_2.16.2_win_portable.zip/download" target="_blank">gedkeeper_2.16.2_win_portable.zip</a></td>
+<td><a href="https://sourceforge.net/projects/gedkeeper/files/v2.16.2/gedkeeper_2.16.2-1_all.deb/download" target="_blank">gedkeeper_2.16.2-1_all.deb</a></td>
+</tr>
+<tr>
+<td>v2.15.0</td>
+<td><a href="https://sourceforge.net/projects/gedkeeper/files/v2.15.0/gedkeeper_2.15.0_win.zip/download" target="_blank">gedkeeper_2.15.0_win.zip</a><br>
+<a href="https://sourceforge.net/projects/gedkeeper/files/v2.15.0/gedkeeper_2.15.0_win_portable.zip/download" target="_blank">gedkeeper_2.15.0_win_portable.zip</a></td>
+<td><a href="https://sourceforge.net/projects/gedkeeper/files/v2.15.0/gedkeeper_2.15.0-1_all.deb/download" target="_blank">gedkeeper_2.15.0-1_all.deb</a></td>
+</tr>
+<tr>
+<td>v2.14.0</td>
+<td><a href="https://sourceforge.net/projects/gedkeeper/files/v2.14.0/gedkeeper_2.14.0_win.zip/download" target="_blank">gedkeeper_2.14.0_win.zip</a><br>
+<a href="https://sourceforge.net/projects/gedkeeper/files/v2.14.0/gedkeeper_2.14.0_win_portable.zip/download" target="_blank">gedkeeper_2.14.0_win_portable.zip</a></td>
+<td><a href="https://sourceforge.net/projects/gedkeeper/files/v2.14.0/gedkeeper_2.14.0-1_all.deb/download" target="_blank">gedkeeper_2.14.0-1_all.deb</a></td>
+</tr>
+<tr>
+<td>v2.13.2</td>
+<td><a href="https://sourceforge.net/projects/gedkeeper/files/v2.13.2/gedkeeper_2.13.2_win.zip/download" target="_blank">gedkeeper_2.13.2_win.zip</a></td>
+<td><a href="https://sourceforge.net/projects/gedkeeper/files/v2.13.2/gedkeeper_2.13.2-1_all.deb/download" target="_blank">gedkeeper_2.13.2-1_all.deb</a></td>
+</tr>
+<tr>
+<td>v2.13.1</td>
+<td><a href="https://sourceforge.net/projects/gedkeeper/files/v2.13.1/gedkeeper_2.13.1_win.zip/download" target="_blank">gedkeeper_2.13.1_win.zip</a></td>
+<td><a href="https://sourceforge.net/projects/gedkeeper/files/v2.13.1/gedkeeper_2.13.1-1_all.deb/download" target="_blank">gedkeeper_2.13.1-1_all.deb</a></td>
+</tr>
+<tr>
+<td>v2.13.0</td>
+<td><a href="https://sourceforge.net/projects/gedkeeper/files/v2.13.0/gedkeeper_2.13.0_win.zip/download" target="_blank">gedkeeper_2.13.0_win.zip</a></td>
+<td><a href="https://sourceforge.net/projects/gedkeeper/files/v2.13.0/gedkeeper_2.13.0-1_all.deb/download" target="_blank">gedkeeper_2.13.0-1_all.deb</a></td>
+</tr>
+<tr>
+<td>v2.12.0</td>
+<td><a href="https://sourceforge.net/projects/gedkeeper/files/v2.12.0/gedkeeper_2.12.0_win.zip/download" target="_blank">gedkeeper_2.12.0_win.zip</a></td>
+<td><a href="https://sourceforge.net/projects/gedkeeper/files/v2.12.0/gedkeeper_2.12.0-1_all.deb/download" target="_blank">gedkeeper_2.12.0-1_all.deb</a></td>
+</tr>
+</table>
 
 </section>
 </div>
