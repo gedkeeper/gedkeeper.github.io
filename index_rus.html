@@ -13,11 +13,21 @@
 <header class="inner">
 <a id="forkme_banner" href="https://github.com/serg-norseman/gedkeeper" target="_blank">View on GitHub</a>
 <a id="lang_banner" href="index.html">English</a>
-<h1 id="project_title">GEDKeeper</h1>
-<h2 id="project_tagline">программа для ведения личной генеалогической базы данных</h2>
+
+<div style="display: flex; flex-flow: row nowrap;">
+  <div>
+    <img src="images/gk_logo_v01.png">
+  </div>
+  <div style="width: 20px"></div>
+  <div>
+    <h1 id="project_title">GEDKeeper</h1>
+    <h2 id="project_tagline">программа для ведения личной генеалогической базы данных</h2>
+  </div>
+</div>
+
 <section id="downloads">
-<a class="zip_download_link" href="https://sourceforge.net/projects/gedkeeper/files/v2.17.0/gedkeeper_2.17.0_win.zip/download">Download this project as a .zip file</a>
-<a class="tar_download_link" href="https://sourceforge.net/projects/gedkeeper/files/v2.17.0/gedkeeper_2.17.0-1_all.deb/download">Download this project as a tar.gz file</a>
+<a class="zip_download_link" href="https://sourceforge.net/projects/gedkeeper/files/v2.18.0/gedkeeper_2.18.0_win.zip/download">Download this project as a .zip file</a>
+<a class="tar_download_link" href="https://sourceforge.net/projects/gedkeeper/files/v2.18.0/gedkeeper_2.18.0-1_all.deb/download">Download this project as a tar.gz file</a>
 </section>
 </header>
 </div>
@@ -43,6 +53,37 @@
 </p>
 
 <h1>Новости</h1>
+
+<h6>28/07/2021</h6>
+<p>Выпущена версия v2.18.0</p><p><ul>
+<li>Оптимизирована модель данных для экономии памяти [Александр Зайцев]
+    (новый рекорд: файл объемом 635 mb (2.674.481 записей) загружен за 3:46 минуты).
+<li>Добавлена опция раздельной глубины предков и потомков в диаграммах деревьев [Milan Kosina].
+<li>Добавлена возможность ограничить гео-поиск по стране.
+<li>Добавлена опция полужирного шрифта имен в диаграммах деревьев.
+<li>В список записей добавлено контекстное меню для объединения выбраных записей.</li>
+<li>В инструменте проверки базы данных добавлены: диалог подробностей, быстрый переход на запись лица
+    и копирование идентификатора в буфер обмена.
+<li>В инструменте анализа связности/фрагментации данных добавлены: отображение идентификатора, 
+    диалог подробностей и быстрый переход на запись лица.
+<li>Реализована поддержка лет между 32 г. д.н.э. и 32 г. н.э. [Александр Зайцев].
+<li>Исправлено медленное отображение больших заметок с html-разметкой внутри.
+<li>Добавлены ссылки на открытые данные [Александр Зайцев].
+<li>Исправлена ошибка в диалоге редактирования языка [Александр Зайцев].
+<li>Исправлено рисование линий приемных детей на диаграмме потомков [Александр Зайцев].
+<li>Исправлена ошибка с венгерским форматом даты для диалога редактирования события.
+<li>Исправлено предварительное заполнение имен для новых записей [Александр Зайцев].
+<li>Исправлено редактирование отчества согласно языку имени [Александр Зайцев]. 
+<li>Улучшен импорт GEDCOM-формата из Ages-файлов в части определения приемных детей.
+<li>Добавлена опциональная возможность вывода дат и мест в раздельных строках в диаграммах деревьев.
+<li>Исправлена ошибка переноса строк в панели информации.
+<li>Добавлена возможность скачивания и просмотра мультимедиа по http-ссылкам.
+<li>Добавлен переход к записи выбранного человека из диаграмм деревьев.
+<li>Добавлен вывод масштаба в строке статуса диаграмм деревьев.
+<li>Добавлены три новых отчета: места, источники и архивы.
+<li>Добавлена экспериментальная поддержка формата файлов Family.Show.
+<li>Улучшена поддержка загрузки файлов Geni.
+</ul></p>
 
 <h6>14/03/2021</h6>
 <p>Выпущена версия v2.17.0</p><p><ul>
@@ -80,6 +121,12 @@
 <th>Версия</th>
 <th><p><img src="images/menuwin.png" align="absmiddle"/>&nbsp;Windows</p></th>
 <th><p><img src="images/menutux.png" align="absmiddle"/>&nbsp;Linux</p></th>
+</tr>
+<tr>
+<td>v2.18.0</td>
+<td><a href="https://sourceforge.net/projects/gedkeeper/files/v2.18.0/gedkeeper_2.18.0_win.zip/download" target="_blank">gedkeeper_2.18.0_win.zip</a><br>
+<a href="https://sourceforge.net/projects/gedkeeper/files/v2.18.0/gedkeeper_2.18.0_win_portable.zip/download" target="_blank">gedkeeper_2.18.0_win_portable.zip</a></td>
+<td><a href="https://sourceforge.net/projects/gedkeeper/files/v2.18.0/gedkeeper_2.18.0-1_all.deb/download" target="_blank">gedkeeper_2.18.0-1_all.deb</a></td>
 </tr>
 <tr>
 <td>v2.17.0</td>
