@@ -41,7 +41,7 @@
 </div>
 
 <section id="downloads">
-<a class="zip_download_link" href="https://sourceforge.net/projects/gedkeeper/files/v2.24.0/gedkeeper_2.24.0_win.zip/download">Download this project as a .zip file</a>
+<a class="zip_download_link" href="https://sourceforge.net/projects/gedkeeper/files/v2.25.0/gedkeeper_2.25.0_win86.zip/download">Download this project as a .zip file</a>
 <a class="tar_download_link" href="https://sourceforge.net/projects/gedkeeper/files/v2.24.0/gedkeeper_2.24.0-1_all.deb/download">Download this project as a tar.gz file</a>
 </section>
 </header>
@@ -68,6 +68,32 @@ Chat (Telegram): <a href="https://t.me/gedkeeper_chat_en" target="_blank">https:
 </p>
 
 <h1>News</h1>
+
+<h6>28/03/2023</h6>
+<p>Released version v2.25.0</p><p><ul>
+<li>Fixed bug with missing spaces in notes.
+<li>Updated Czech translation [Jerry Verner].
+<li>Added display of days remaining until birth anniversaries, multiples of 10 and 25 years.
+<li>Added display of marker tooltips with place names and dates in maps.
+<li>Removed restriction on date ranges without known years.
+<li>Added optional multipage printing of charts.
+<li>Added the option to send the result of calculating the year of events from the Calculator plugin to the event editing dialog.
+<li>Added feature to write to CSV from Lua scripts.
+<li>Added sorting of event types by frequency of use in the event editing dialog.
+<li>Added remembering filters in the record selection dialog (filter applying is now on the Enter button).
+<li>Added remembering the last selected person in tree diagrams, and restoring when no other person is selected.
+<li>Added protection for the output of "extended woman surnames": if displaying only maiden or married surnames is selected, 
+  but there are none, then the surname that is available is displayed (especially for children).
+<li>Improved calculation of ages by chronological difference of years.
+<li>Fixed display of person names in lists and tree (always the first in the list if the filtering language is not selected in the Navigator).
+<li>Added recognition in files of non-standard designations of months in Russian, Dutch, French, German and Spanish.
+<li>Added output of links to external resources by RFN tag.
+<li>Fixed marriage surname and nickname reset when changing secondary structures of a person.
+<li>Added remembering folders for saving scripts, images and reports.
+<li>Added option to shorten date ranges in years only mode in tree charts.
+<li>Removed plugins GKFoldersPlugin, GKImageViewerPlugin, GKTreeVizPlugin.
+<li>The .NET Framework has been updated to version 4.7.2.
+</ul></p>
 
 <h6>28/02/2023</h6>
 <p>Released version v2.24.0</p><p><ul>
@@ -98,105 +124,6 @@ Chat (Telegram): <a href="https://t.me/gedkeeper_chat_en" target="_blank">https:
 <li>The "Calendar" plugin completely redesigned into a date converter.
 </ul></p>
 
-<h6>28/11/2022</h6>
-<p>Released version v2.22.0</p><p><ul>
-<li>Added feature "Find and Replace".
-<li>Fixed inconsistent display of names between list of persons and the information panel.
-<li>Added output of event sources to the pedigree report.
-<li>Improved support for portrait photos when importing files from FTB.
-<li>Added option to highlight inaccessible media files.
-<li>Added new diagnostic: detection of persons without any places.
-<li>Added "Open in new window" function in tree chart.
-<li>Added a new ancestry statistics report.
-<li>Added automatic photo orientation correction.
-<li>Updated German localization [Flexmaen].
-<li>Fixed output of multimedia files in the GEDmill website generator.
-<li>Fixed entering dates in regional formats.
-<li>Added fan chart mode to ancestor circle chart.
-<li>Added options to enable extended tree mode and maximize chart windows.
-<li>Added an extended mode for displaying trees - with the ancestors of the spouses of the central person.
-<li>Added output method and a file with useful tips for working with the program.
-<li>Added options for advanced users: enable extended notes and disable saving "rich" names in GEDCOM files.
-<li>Added option to save portraits inline in SVG files (or external files).
-<li>Added output of portraits in SVG export files of tree diagrams.
-<li>Fixed display error of some relationships [se-sss].
-</ul></p>
-
-<h6>28/08/2022</h6>
-<p>Released version v2.21.0</p><p><ul>
-<li>Changed the display of several families of parents in the information panel.
-<li>Added diagnostics for several families of parents in personal records.
-<li>Added option to turn off extra tree chart controls.
-<li>Added copy/paste operations in the list of associations.
-<li>Improved merging of group and repository records, added copy/paste citations to repositories.
-<li>Added functions of repair broken/partial links.
-<li>Added new diagnostic for broken/partial links between persons and families.
-<li>Added output of notes of events/facts in pedigrees.
-<li>Added copy/paste operations in the lists of events (persons and families) and citations to sources.
-<li>Added selection of person portrait areas for any number of arbitrary image files.
-<li>Fixed bug with displaying portrait areas in collective photos.
-<li>Improved relationship calculator.
-<li>Switching previously used filters has been added to the Navigator plugin.
-<li>Updated Czech translation [Jerry Verner].
-<li>Added option to display localized signatures for calendars in dates.
-<li>Added extended file backup plugin.
-<li>Added an option to select the сertainty assessment algorithm.
-<li>Improved and included in the distribution plugin Navigator.
-<li>Added the feature to switch languages for display names in the Navigator plugin.
-<li>Fixed a bug in the database splitting tool.
-</ul></p>
-
-<h6>14/04/2022</h6>
-<p>Released version v2.20.1</p><p><ul>
-<li>Fixed support for negative coordinates in FTB files.
-<li>Added option to display surnames in capital letters.
-<li>Fixed error resetting name in person edit dialog when adding father/mother.
-<li>Fixed double display of the surname in the person page in the generated site.
-<li>Fixed an error in determining the kinship of cousins.
-<li>Added the feature to display age in a person's card in the tree.
-<li>Fixed a bug with displaying dialogs relative to the main window.
-<li>Fixed issue with typing Return in note editor.
-</ul></p>
-
-<h6>28/03/2022</h6>
-<p>Released version v2.20.0</p><p><ul>
-<li>Fixed declension of partial names in birthday message.
-<li>Fixed a bug with calling the log and help in Linux.
-<li>Fixed display of parents' names in person and family dialogs.
-<li>Improved safely remove or fix media records with missing files.
-<li>Fixed maximum text length limit in note editor.
-<li>Fixed display of custom names of generalized events and facts.
-<li>Added a tab and an editable list of children directly in the person's dialog.
-<li>Added website generator plugin (GEDmill).
-<li>Added an option to turn off minimizing the width of tree diagrams.
-<li>Added the function to jump to the primary branch from the duplicate one in tree diagrams.
-<li>Fixed display of divorce color in descendant trees.
-<li>Fixed the work of the tool for splitting databases.
-<li>Added option to display only localities when displaying places in tree diagrams.
-<li>Removed locking the display of places with the "Years only" option in tree diagrams.
-<li>Fixed a fail in the initialization of the regional culture object, the settings did not open.
-<li>Added partial Kazakh localization [Erik].
-<li>Polish localization proofreading [Waldemar Stoczkowski].
-<li>Improved support for Linux Fedora packages.
-<li>Added initial support for Linux Manjaro packages.
-<li>Introduced the display of the borders of the tree diagram.
-</ul></p>
-
-<h6>28/09/2021</h6>
-<p>Released version v2.19.0</p><p><ul>
-<li>Fixed a bug with filtering by locations, groups and sources.
-<li>Added option to display names in reverse order - first name at the beginning, surname at the end.
-<li>Fixed a bug in the work of events when creating an empty file, before loading any GEDCOM files.
-<li>Added an option for short form of kinship in the relationship calculator and tree diagrams.
-<li>Fixed full activation and data filling when calling plugins.
-<li>Fixed getter and setter of items in comboboxes of calendars and interface language.
-<li>Proofreading of Ukrainian localization [Oleksiy Diedush].
-<li>Added a sample of Taras Shevchenko's genealogy [Oleksiy Diedush].
-<li>Fixed focus issue in lists.
-<li>Fixed extracting patronymic from complex name [Alex Zaytsev].
-<li>Added ability to assign multiple places at once in the places manager [Alex Zaytsev].
-</ul></p>
-
 <a href="old_news.html" target="_blank">... old news</a>
 
 <a name="downloads"><h2>Download releases</h2></a>
@@ -208,8 +135,8 @@ Chat (Telegram): <a href="https://t.me/gedkeeper_chat_en" target="_blank">https:
 </tr>
 <tr>
 <td><p><img src="images/menuwin.png" align="absmiddle"/>&nbsp;Windows</p></td>
-<td><a href="https://sourceforge.net/projects/gedkeeper/files/v2.24.0/gedkeeper_2.24.0_win.zip/download" target="_blank">gedkeeper_2.24.0_win.zip</a><br>
-<a href="https://sourceforge.net/projects/gedkeeper/files/v2.24.0/gedkeeper_2.24.0_win_portable.zip/download" target="_blank">gedkeeper_2.24.0_win_portable.zip</a></td>
+<td><a href="https://sourceforge.net/projects/gedkeeper/files/v2.25.0/gedkeeper_2.25.0_win86.zip/download" target="_blank">gedkeeper_2.25.0_win86.zip</a><br>
+<a href="https://sourceforge.net/projects/gedkeeper/files/v2.25.0/gedkeeper_2.25.0_win86_portable.zip/download" target="_blank">gedkeeper_2.25.0_win86_portable.zip</a></td>
 </tr>
 <tr>
 <td><p><img src="images/menutux.png" align="absmiddle"/>&nbsp;Linux</p></td>
