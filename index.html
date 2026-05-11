@@ -1,227 +1,597 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset='utf-8' />
-<meta http-equiv="X-UA-Compatible" content="chrome=1" />
-<meta name="description" content="GEDKeeper - program for work with personal genealogical database" />
-<link rel="stylesheet" type="text/css" media="screen" href="stylesheets/stylesheet.css">
-<title>GEDKeeper</title>
+    <meta charset='utf-8' />
+    <meta http-equiv="X-UA-Compatible" content="chrome=1" />
+    <meta name="description" content="GEDKeeper - program for work with personal genealogical database" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/stylesheet.css">
+    <link rel="stylesheet" type="text/css" href="stylesheets/zoom.css">
+    <title>GEDKeeper</title>
+    <style>
+        /* Фиксированная навигация */
+        #header_wrap {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            height: 18%; /* Уменьшена на 20% от оригинальной высоты */
+        }
+
+        /* Основной контент ниже фиксированной навигации */
+        #main_content_wrap {
+            margin-top: 160px; /* Компенсация высоты фиксированной навигации */
+            display: flex;
+            flex-direction: row;
+            min-height: calc(100vh - 160px);
+        }
+
+        /* Плавающая кнопка переключения языка */
+        #lang_banner {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1001;
+            padding: 10px 15px;
+            color: #fff;
+            background: #0090ff;
+            font-weight: 700;
+            font-size: 14px;
+            box-shadow: 0 0 10px rgba(0,0,0,.5);
+            border-radius: 2px;
+            text-decoration: none;
+        }
+
+            #lang_banner:hover {
+                background: #007acc;
+            }
+
+        /* Левая панель с загрузками */
+        #downloads_panel {
+            width: 250px;
+            position: fixed;
+            top: 160px;
+            left: 0;
+            height: calc(100vh - 160px);
+            overflow-y: auto;
+            padding: 20px;
+            background: #f2f2f2;
+            border-right: 1px solid #111;
+            box-sizing: border-box;
+        }
+
+        #downloads_list {
+            margin: 0;
+            padding: 0;
+        }
+
+        .os-section {
+            margin-bottom: 20px;
+        }
+
+            .os-section h3 {
+                margin-top: 0;
+                margin-bottom: 10px;
+                padding: 5px;
+                border-radius: 3px;
+            }
+
+            .os-section ul {
+                list-style-type: none;
+                padding-left: 10px;
+                margin: 0;
+            }
+
+            .os-section li {
+                margin-bottom: 5px;
+            }
+
+            /* Акцентированная секция (по умолчанию без акцента) */
+            .os-section.highlighted h3 {
+                background-color: #e0e0e0;
+                font-size: 1.05em;
+                box-shadow: 0 0 5px rgba(0,0,0,0.1);
+            }
+
+        /* Центральная панель с контентом */
+        #content_panel {
+            flex: 1;
+            margin-left: 250px;
+            margin-right: 300px;
+            padding: 20px;
+            max-height: calc(100vh - 160px);
+            overflow-y: auto;
+            box-sizing: border-box;
+        }
+
+        /* Правая панель с галереей */
+        #gallery_panel {
+            width: 300px;
+            position: fixed;
+            top: 160px;
+            right: 0;
+            height: calc(100vh - 160px);
+            overflow-y: auto;
+            padding: 20px;
+            background: #f2f2f2;
+            border-left: 1px solid #111;
+            box-sizing: border-box;
+        }
+
+            /* Изображения в галерее */
+            #gallery_panel img {
+                width: calc(100% - 10px); /* Не более 1/3 ширины области */
+                height: auto;
+                margin: 5px;
+                cursor: pointer;
+                transition: transform ease-in-out 0.3s;
+            }
+
+                #gallery_panel img:hover {
+                    transform: scale(1.05);
+                }
+
+        /* Модальное окно для изображений */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 2000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.8);
+        }
+
+        .modal-content {
+            margin: auto;
+            display: block;
+            min-width: 60%;
+            max-height: 80%;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        .close {
+            position: absolute;
+            top: 15px;
+            right: 35px;
+            color: #f1f1f1;
+            font-size: 40px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+            .close:hover,
+            .close:focus {
+                color: #bbb;
+            }
+
+        /* Адаптивность для мобильных устройств */
+        @media screen and (max-width: 1024px) {
+            #downloads_panel {
+                width: 200px;
+            }
+
+            #content_panel {
+                margin-left: 200px;
+                margin-right: 250px;
+            }
+
+            #gallery_panel {
+                width: 250px;
+            }
+        }
+
+        @media screen and (max-width: 768px) {
+            #main_content_wrap {
+                flex-direction: column;
+            }
+
+            #downloads_panel {
+                position: relative;
+                width: 100%;
+                height: auto;
+                top: 0;
+                border-right: none;
+                border-bottom: 1px solid #111;
+            }
+
+            #content_panel {
+                margin-left: 0;
+                margin-right: 0;
+                max-height: none;
+            }
+
+            #gallery_panel {
+                position: relative;
+                width: 100%;
+                height: auto;
+                top: 0;
+                border-left: none;
+                border-top: 1px solid #111;
+            }
+        }
+    </style>
 </head>
 
 <body>
-<div id="header_wrap" class="outer">
-<header class="inner">
-<a id="forkme_banner" href="https://github.com/serg-norseman/gedkeeper" target="_blank">View on GitHub</a>
-<a id="lang_banner" href="index_rus.html">Русский</a>
-<a id="gall_banner" href="gallery.html">Gallery</a>
+    <!-- Кнопка переключения языка (плавающая) -->
+    <a id="lang_banner" href="#" onclick="switchLanguage(); return false;">Русский</a>
 
-<div style="display: flex; flex-flow: row nowrap;">
-  <div>
-    <img src="images/gk_logo_v01.png">
-  </div>
-  <div style="width: 20px"></div>
-  <div>
-    <h1 id="project_title">GEDKeeper</h1>
-    <h2 id="project_tagline">program for work with personal genealogical database</h2>
-  </div>
-</div>
+    <!-- Фиксированная верхняя панель -->
+    <div id="header_wrap" class="outer">
+        <header class="inner">
+            <div style="display: flex; flex-flow: row nowrap;">
+                <div>
+                    <img src="images/gk_logo_v01.png">
+                </div>
+                <div style="width: 20px"></div>
+                <div>
+                    <h1 id="project_title" style="display: flex; align-items: center;">GEDKeeper <a id="forkme_banner" href="https://github.com/serg-norseman/gedkeeper" target="_blank">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a></h1>
+                    <h2 id="project_tagline">program for work with personal genealogical database</h2>
+                </div>
+            </div>
+        </header>
+    </div>
 
-</header>
-</div>
+    <!-- Основной контент -->
+    <div id="main_content_wrap" class="outer">
+        <!-- Левая панель с загрузками -->
+        <div id="downloads_panel">
+            <h2 id="download_releases">Download releases</h2>
+            <div id="downloads_container">
+                <!-- Содержимое загрузок будет подгружено сюда динамически -->
+            </div>
+        </div>
 
-<div id="main_content_wrap" class="outer">
-<section id="main_content" class="inner">
+        <!-- Центральная панель с описанием и новостями -->
+        <section id="content_panel">
+            <p id="description_p1">GEDKeeper program is developed for work with personal genealogical database.</p>
 
-<p>GEDKeeper program is developed for work with personal genealogical database.</p>
+            <p id="description_p2">The program is designed for extremely simple and intuitive interface. The program is very easy to install on the computer, fully supports the GEDCOM format, has no restrictions on the number of persons and generations, allows you to generate pedigrees, building several tree species, as well as print and save their images, provides fast navigation, filtering, searching and adding multimedia materials. In addition there is an output of geographic data on Google maps (© Google).</p>
 
-<p>The program is designed for extremely simple and intuitive interface. The program is very easy to install on the computer, 
-fully supports the GEDCOM format, has no restrictions on the number of persons and generations, allows you to generate pedigrees, 
-building several tree species, as well as print and save their images, provides fast navigation, filtering, searching and adding multimedia materials. 
-In addition there is an output of geographic data on Google maps (© Google).</p>
+            <p id="description_p3">The aim of the program is as quick and effective means of conducting personal genealogical database.</p>
 
-<p>The aim of the program is as quick and effective means of conducting personal genealogical database.</p>
+            <p>
+                <a href="https://groups.google.com/g/gedkeeper-en" target="_blank" id="forum">Forum</a>
+                <br />
+                <span id="news_channel">News channel </span>:&nbsp;<a href="https://t.me/gedkeeper_en" target="_blank">Telegram</a>&nbsp;/&nbsp;<a href="https://max.ru/join/1dnw0CuvmD995E1q8nXJEd6O7tigfWcnUQfYig04Bx0" target="_blank">Max</a>
+                <br />
+                <span id="chat">Chat </span>:&nbsp;<a href="https://t.me/gedkeeper_chat_en" target="_blank">Telegram</a>&nbsp;/&nbsp;<a href="https://max.ru/join/j8SJCrTGeoFyVkQdQpPY2S_1Bb4FqA11njgIySvDBg4" target="_blank">Max</a>
+            </p>
 
-<p>
-<a href="https://groups.google.com/g/gedkeeper-en" target="_blank">Forum</a>
-<br/>
-<a href="https://t.me/gedkeeper_en" target="_blank">News channel (Telegram)</a>
-<br/>
-<a href="https://t.me/gedkeeper_chat_en" target="_blank">Chat (Telegram)</a>
-</p>
+            <h1 id="news_title">News</h1>
+            <div id="news_container">
+                <!-- Новости будут подгружаться здесь динамически -->
+            </div>
+            <button id="load_more_btn" onclick="loadMoreNews()"></button>
+        </section>
 
-<h1>News</h1>
+        <!-- Правая панель с галереей -->
+        <div id="gallery_panel">
+            <h2 id="gallery">Gallery</h2>
+            <div id="gallery_images">
+                <!-- Изображения галереи будут подгружаться здесь динамически -->
+            </div>
+        </div>
+    </div>
 
-<h6>28/02/2026</h6>
-<p>Released version v2.38.0/Windows & v3.14.0/Linux,Windows</p><p><ul>
-	<li>Localizations updated: German [Christian Bettinger], Hungarian [Kékesi Lajos, kazerniel], Spanish [Miguel A. Pérez Valdenebro].</li>
-	<li>Added saving of background color or image in tree diagrams.</li>
-	<li>Added a Family Book option to include family events in a person's event list (GKv3).</li>
-	<li>Added ​Family Book options: include events and notes in the output, notes without line breaks (GKv3).</li>
-	<li>Added a custom style file for exporting the Family Book to HTML format.</li>
-	<li>Fixed a filtering error for some columns (dates and numbers).</li>
-	<li>Fixed a bug when adding a new place from the place management tool.</li>
-	<li>Added deathdays reminders when loading a file; added an option to display events only for living people in tooltips.</li>
-	<li>Added new report "Search Index".</li>
-	<li>Added an option to disable multiple spouse lines in trees (GKv3).</li>
-	<li>The option to shorten incomplete dates and their ranges has been extended to tree charts.</li>
-	<li>Improved support for loading files from FamilyUniverse, SyniumFamilyTree and Brother's Keeper.</li>
-	<li>Added the file reload function (GKv3) [Alex Zaytsev].</li>
-	<li>Added an option to disable event sorting in pedigrees (GKv3).</li>
-	<li>Restored loading of the second and subsequent files by clicking in Explorer while the program is already open.</li>
-	<li>Micro-optimizations of various functions; acceleration of file loading and saving.</li>
-</ul></p>
+    <!-- Модальное окно для изображений -->
+    <div id="imageModal" class="modal">
+        <span class="close" onclick="closeModal()">&times;</span>
+        <img class="modal-content" id="modalImage">
+    </div>
 
-<h6>14/12/2025</h6>
-<p>Released version v2.37.0/Windows & v3.13.0/Linux,Windows</p><p><ul>
-    <li>Added forced creation of a copy of the GEDCOM file if a file from another program or an old format is loaded.</li>
-    <li>AI-generated themes have been moved to the examples archive.</li>
-    <li>The "Storage" reference type for multimedia files has been eliminated; all existing paths of this type are automatically converted to relative ones.</li>
-    <li>Added support for multiple files in multimedia records.</li>
-    <li>Fixed installation of sqlite3.dll when running the map module (GKv2).</li>
-    <li>Added interface font options.</li>
-    <li>Fixed program slowdowns when editing data due to the use of full-text search.</li>
-    <li>Fixed a program freeze when opening third-party files with incorrect record identifiers.</li>
-    <li>Micro-optimizations of various functions.</li>
-</ul></p>
+    <div id="footer_wrap" class="outer">
+        <footer class="inner">
+            <p class="copyright">GEDKeeper maintained by <a href="mailto:gedkeeper@yandex.ru" target="_blank">Serg Zhdanovskih</a></p>
+        </footer>
+    </div>
 
-<h6>14/10/2025</h6>
-<p>Released version v2.36.0/Windows & v3.12.0/Linux,Windows</p><p><ul>
-    <li>Fixed program crashes when loading files with errors.</li>
-    <li>Localizations updated: German [Christian Bettinger], Hungarian [kazerniel], Spanish [Miguel A. Pérez Valdenebro], Vietnamese [akodyn].</li>
-    <li>Batch photo addition has been made more versatile and easier.</li>
-    <li>Find and replace functionality has been expanded to include file paths in media records.</li>
-    <li>The "Chronicle" plugin has been integrated with the program.</li>
-    <li>Improved Trees Album generation.</li>
-    <li>The file properties dialog has been simplified.</li>
-    <li>New icons in classic and modern styles have been added to the default and additional themes.</li>
-    <li>A button for viewing media and detailed information has been added to various fact lists.</li>
-    <li>Date columns can now be aligned to the left or right depending on the output format.</li>
-    <li>Theme support has been expanded to include plugins and improved overall.</li>
-    <li>The design of several dialogs in GKv2 and GKv3 has been improved, and the Cloud, Life, and Navigator plugins have been optimized.</li>
-    <li>Improved theme support in GKv2 and GKv3.</li>
-    <li>The "Pedigrees importer" plugin merged with "Flow input" (future subproject "Sandbox").</li>
-    <li>The "Flow input" and "Pedigrees importer" plugins removed from the program delivery and their development stopped (only experiments).</li>
-    <li>Find and replace functionality has been expanded to include person and family places, note text, and the titles of all other records.</li>
-    <li>Fixed line output defects when saving trees to SVG.</li>
-    <li>Removed the extended file backup plugin (built into the program).</li>
-    <li>Fixed output of ancestor trees for deceased infants of unknown sex.</li>
-    <li>Optimized and unified all list and table views.</li>
-    <li>Optimized and accelerated (20-25%) rendering of tree diagrams.</li>
-    <li>The settings dialog has been slightly reorganized (GKv3).</li>
-    <li>Added option to enable validation of GEDCOM constraints on input data.</li>
-    <li>Reorganized the person editing dialog.</li>
-    <li>Added new design themes: "Jungle", "Vintage", "Rome", "Cyberpunk", "TRON" and "Matrix" (AI-generated with manual correction of unsuccessful shades).</li>
-    <li>Improved calculation of parents' age on children's birth dates in the tree - not only birth dates are taken, but also baptism dates.</li>
-    <li>Added output of wedding anniversaries in tips on opening files.</li>
-    <li>Added support for reading GEDZIP files [Alex Zaytsev].</li>
-    <li>Added partial localization into Vietnamese [akodyn].</li>
-    <li>The definition of family kinships has been reworked, relations types and rules have been moved to the settings file.</li>
-    <li>Fixed saving trees to PDF on Linux.</li>
-    <li>Improved compatibility with the standard of addresses input and reading.</li>
-    <li>Added the feature to enter and store age for events, by the standard.</li>
-    <li>Export in strict mode GEDCOM saves location coordinates in a standard format.</li>
-    <li>Fixed output of marriage dates in tree diagrams.</li>
-    <li>Added support for input and simple analysis (GKGenetix plugin) of DNA tests.</li>
-    <li>Added plugin to support face recognition in photos.</li>
-    <li>Fixed doubling up menu items (GKv3/Mac) [Alex Zaytsev].</li>
-    <li>Fixed saving settings on exit (GKv3/Mac) [Alex Zaytsev].</li>
-    <li>Fixed formatting of tables and lists (GKv3/Mac) [Alex Zaytsev].</li>
-    <li>Improved cross-platform compatibility of GKMaps plugin [Alex Zaytsev].</li>
-</ul></p>
+    <script>
+        // Текущий язык (по умолчанию английский)
+        let currentLang = 'en';
 
-<h6>28/04/2025</h6>
-<p>Released version v2.35.0/Windows & v3.11.0/Linux,Windows,Android</p><p><ul>
-<li>Localizations updated: German [Christian Bettinger], Portuguese [Ricardo Neves], Japanese [mtsx68k], 
-    Spanish [Miguel A. Pérez Valdenebro], Hungarian [kazerniel].</li>
-<li>Fixed a bug with reading files from Family Tree Builder with byte-separated UTF8 strings.</li>
-<li>Fixed bug with getting selected item in list of issues in database and no sorting (GKv3).</li>
-<li>Improved display of portraits in the tree (GKv3).</li>
-<li>Fixed problem loading images from web links (added UserAgent).</li>
-<li>Added Lua functions for working with locations.</li>
-<li>Fixed bug with saving tree screenshot (GKv3).</li>
-</ul></p>
+        // Индекс текущей новости для подгрузки
+        let newsIndex = 0;
+        const newsPageSize = 2; // Количество новостей для подгрузки за раз
 
-<h6>14/04/2025</h6>
-<p>Released version v2.34.0/Windows & v3.10.0/Linux,Windows,Android</p><p><ul>
-<li>Help in Spanish has been updated [Miguel A. Pérez Valdenebro].</li>
-<li>Print preview feature is disabled in GKv3 (unfixable issue in .net6/wpf).</li>
-<li>Improved centering of marriage dates in trees.</li>
-<li>Added Lua functions for searching locations with geocoders.</li>
-<li>Fixed a bug in the Lua function select_record().</li>
-<li>Added option to include source citations in pedigrees.</li>
-<li>Fixed a bug with opening multimedia files with relative paths for external viewing.</li>
-<li>Added the feature to export data to a pure/strict GEDCOM file (standard only, no extensions).</li>
-<li>Automatic sorting of children takes into account the baptism date (infant) if the birth date is not specified.</li>
-<li>Added the function of copying the image of trees to the clipboard (Alt+P).</li>
-<li>Fixed the application crash when sending mail (GKv3).</li>
-<li>New solution to blurry portraits in tree (GKv3).</li>
-<li>Expanded support for hyperlinks in the information panel text.</li>
-<li>Fixed defects in the display of portraits in the tree (GKv3).</li>
-<li>Fixed a bug with calling the filtering dialog related to the theme support code.</li>
-<li>Added validation of a number of editable records for compliance with GEDCOM restrictions.</li>
-<li>Fixed a bug where the application would crash completely when saving a file and the previously specified path did not exist (GKv3).</li>
-<li>Fixed an bug in entering the married name in the second and subsequent personal names.</li>
-<li>Fixed bug with tree font selection (GKv3).</li>
-</ul></p>
+        // Загрузка локализационных строк
+        async function loadStrings() {
+            try {
+                const response = await fetch('strings.json');
+                const strings = await response.json();
 
-<h6>14/03/2025</h6>
-<p>Released version v2.33.0/Windows & v3.9.0/Linux,Windows,Android</p><p><ul>
-<li>Localizations updated: Chinese Simplified [Jeff Li], German [Christian Bettinger], Hungarian [Kékesi Lajos, kazerniel],
-    Japanese [mtsx68k], Polish [burtek], Spanish [Miguel A. Pérez Valdenebro], Turkish [Emre Gecher].</li>
-<li>Added "Modern" design theme [kazerniel].</li>
-<li>Added an option to disable non-standard data editing features.</li>
-<li>The entire help is fully updated into Spanish [Miguel A. Pérez Valdenebro].</li>
-<li>The entire help is fully updated in Russian and English.</li>
-<li>Removed GKTray from GEDKeeper.</li>
-<li>The "History Data" (Web Links) plugin is merged with the "Navigator" plugin.</li>
-<li>Restored the option to remember recent files.</li>
-<li>x86 support is completely removed in GKv3.</li>
-<li>Restored the work of design themes in GKv3 (partial).</li>
-<li>Fixed crash when saving file to switched off removable disk (GKv3).</li>
-<li>Added option to display the full file name in the main window title.</li>
-<li>Fixed a bug with calculating the age of parents in tree diagrams.</li>
-<li>Added calling of ancestor, descendant and all persons maps from tree diagrams.</li>
-<li>Added a number of checks for adding invalid links between different records.</li>
-<li>Added functions for moving multimedia files between absolute and relative paths, archive and storage.</li>
-<li>Minor improvements.</li>
-</ul></p>
+                // Обновляем текстовые элементы в соответствии с текущим языком
+                document.getElementById('project_tagline').textContent = strings[currentLang].project_tagline;
+                document.getElementById('description_p1').textContent = strings[currentLang].description_p1;
+                document.getElementById('description_p2').textContent = strings[currentLang].description_p2;
+                document.getElementById('description_p3').textContent = strings[currentLang].description_p3;
+                document.getElementById('forum').textContent = strings[currentLang].forum;
+                document.getElementById('news_channel').textContent = strings[currentLang].news_channel;
+                document.getElementById('chat').textContent = strings[currentLang].chat;
+                document.getElementById('news_title').textContent = strings[currentLang].news_title;
+                document.getElementById('download_releases').textContent = strings[currentLang].download_releases;
+                document.getElementById('gallery').textContent = strings[currentLang].gallery;
 
-<a href="old_news.html" target="_blank">... old news</a>
+                // Обновляем текст кнопки загрузки новостей
+                document.getElementById('load_more_btn').textContent = strings[currentLang].load_more_news;
 
-<a name="downloads"><h2>Download releases</h2></a>
+                // Обновляем текст ссылки переключения языка
+                document.getElementById('lang_banner').textContent = currentLang === 'en' ? 'Русский' : 'English';
+            } catch (error) {
+                console.error('Ошибка загрузки локализационных строк:', error);
+            }
+        }
 
-<table>
-<tr>
-<th>OS</th>
-<th>Release</th>
-</tr>
-<tr>
-<td><p><img src="images/menuwin.png" align="absmiddle"/>&nbsp;Windows</p></td>
-<td>
-<a href="https://sourceforge.net/projects/gedkeeper/files/v3.14.0/gedkeeper_2.38.0_win86.zip/download" target="_blank">Windows 7 and later</a><br>
-<a href="https://sourceforge.net/projects/gedkeeper/files/v3.14.0/gedkeeper_2.38.0_win86_portable.zip/download" target="_blank">Windows 7 and later (portable)</a><br>
-<a href="https://sourceforge.net/projects/gedkeeper/files/v3.14.0/gedkeeper_3.14.0_win64.zip/download" target="_blank">Windows 8/8.1/10/11</a><br>
-<a href="https://sourceforge.net/projects/gedkeeper/files/v3.14.0/gedkeeper_3.14.0_win64_portable.zip/download" target="_blank">Windows 8/8.1/10/11 (portable)</a></td>
-</tr>
-<tr>
-<td><p><img src="images/menutux.png" align="absmiddle"/>&nbsp;Linux</p></td>
-<td>
-<a href="https://sourceforge.net/projects/gedkeeper/files/v3.14.0/gedkeeper_3.14.0-1_amd64.deb/download" target="_blank">Debian/Ubuntu</a></td>
-</tr>
-<tr>
-<td><p><img src="images/menudrd.png" align="absmiddle"/>&nbsp;Android</p></td>
-<td>
-<a href="https://sourceforge.net/projects/gedkeeper/files/v3.8.0/gedkeeperx_3.8.0_beta.apk/download" target="_blank">Android (GK v3.8.0)</a></td>
-</tr>
-</table>
+        // Переключение языка
+        function switchLanguage() {
+            currentLang = currentLang === 'en' ? 'ru' : 'en';
+            loadStrings();
+            switchNews(); // Переключаем новости на новый язык
+            loadGallery(); // Перезагружаем галерею на новом языке
+            loadDownloads(); // Перезагружаем загрузки на новом языке
+            return false;
+        }
 
-</section>
-</div>
+        // Определение операционной системы пользователя
+        function detectOS() {
+            const userAgent = navigator.userAgent || navigator.platform || window.opera;
 
-<div id="footer_wrap" class="outer">
-<footer class="inner">
-<p class="copyright">GEDKeeper maintained by <a href="mailto:gedkeeper@yandex.ru" target="_blank">Serg Zhdanovskih</a></p>
-</footer>
-</div>
+            // Windows
+            if (userAgent.indexOf('Win') !== -1) {
+                return 'windows';
+            }
+
+            // Mac OS
+            if (userAgent.indexOf('Mac') !== -1) {
+                // Для Mac будем показывать Windows секцию как альтернативу
+                return 'windows';
+            }
+
+            // Linux
+            if (userAgent.indexOf('Linux') !== -1 && userAgent.indexOf('Android') === -1) {
+                return 'linux';
+            }
+
+            // Android
+            if (userAgent.indexOf('Android') !== -1) {
+                return 'android';
+            }
+
+            // iOS
+            if (/iPad|iPhone|iPod/.test(userAgent)) {
+                // Для iOS будем показывать Android секцию как альтернативу
+                return 'android';
+            }
+
+            // По умолчанию
+            return null;
+        }
+
+        // Акцентирование секции для системы пользователя
+        function highlightOSSection() {
+            const os = detectOS();
+            if (os) {
+                const section = document.getElementById(`${os}_section`);
+                if (section) {
+                    section.classList.add('highlighted');
+                }
+            }
+        }
+
+        // Переключение новостей на другой язык
+        async function switchNews() {
+            try {
+                // Сохраняем текущую позицию прокрутки новостей
+                const savedNewsIndex = newsIndex;
+
+                // Сбрасываем индекс для загрузки с начала
+                newsIndex = 0;
+
+                // Загружаем новости на новом языке
+                const response = await fetch(`news_${currentLang}.html`);
+                const newsHtml = await response.text();
+
+                // Парсим HTML новостей
+                const parser = new DOMParser();
+                const doc = parser.parseFromString(newsHtml, 'text/html');
+                const newsItems = Array.from(doc.querySelectorAll('h6'));
+
+                // Очищаем контейнер новостей
+                document.getElementById('news_container').innerHTML = '';
+
+                // Подгружаем те же новости, что были отображены до переключения языка
+                const endIndex = Math.min(savedNewsIndex, newsItems.length);
+                for (let i = 0; i < endIndex; i++) {
+                    const item = newsItems[i];
+                    const content1 = item.nextElementSibling; // Первый параграф (информация о релизе)
+                    const content2 = content1 ? content1.nextElementSibling : null; // Второй параграф
+                    const content3 = content2 ? content2.nextElementSibling : null; // список изменений
+
+                    // Добавляем заголовок
+                    document.getElementById('news_container').appendChild(item.cloneNode(true));
+
+                    // Добавляем первый параграф
+                    if (content1) {
+                        document.getElementById('news_container').appendChild(content1.cloneNode(true));
+                    }
+
+                    // Добавляем список изменений
+                    if (content3) {
+                        document.getElementById('news_container').appendChild(content3.cloneNode(true));
+                    }
+                }
+
+                // Восстанавливаем индекс
+                newsIndex = endIndex;
+
+                // Обновляем состояние кнопки "Загрузить еще"
+                const loadMoreBtn = document.getElementById('load_more_btn');
+                if (newsIndex >= newsItems.length) {
+                    loadMoreBtn.style.display = 'none';
+                } else {
+                    loadMoreBtn.style.display = 'block';
+                }
+            } catch (error) {
+                console.error('Ошибка переключения новостей:', error);
+            }
+        }
+
+        // Загрузка списка загрузок
+        async function loadDownloads() {
+            try {
+                const response = await fetch('downloads.html');
+                const downloadsHtml = await response.text();
+
+                // Отображаем список загрузок
+                document.getElementById('downloads_container').innerHTML = downloadsHtml;
+
+                // После загрузки содержимого обновляем локализуемые элементы
+                updateDownloadsLocalization();
+
+                // Вызываем функцию акцентирования
+                highlightOSSection();
+            } catch (error) {
+                console.error('Ошибка загрузки списка загрузок:', error);
+            }
+        }
+
+        // Обновление локализации в секции загрузок
+        async function updateDownloadsLocalization() {
+            try {
+                // Загружаем локализационные строки
+                const response = await fetch('strings.json');
+                const strings = await response.json();
+
+                // Обновляем локализуемые элементы в секции загрузок
+                document.getElementById('windows').textContent = strings[currentLang].windows;
+                document.getElementById('linux').textContent = strings[currentLang].linux;
+                document.getElementById('android').textContent = strings[currentLang].android;
+                document.getElementById('windows_7_later').textContent = strings[currentLang].windows_7_later;
+                document.getElementById('windows_7_later_portable').textContent = strings[currentLang].windows_7_later_portable;
+                document.getElementById('windows_8_11').textContent = strings[currentLang].windows_8_11;
+                document.getElementById('windows_8_11_portable').textContent = strings[currentLang].windows_8_11_portable;
+                document.getElementById('debian_ubuntu').textContent = strings[currentLang].debian_ubuntu;
+                document.getElementById('android_gk').textContent = strings[currentLang].android_gk;
+
+                // Обновляем текст кнопки загрузки новостей
+                document.getElementById('load_more_btn').textContent = strings[currentLang].load_more_news;
+            } catch (error) {
+                console.error('Ошибка обновления локализации загрузок:', error);
+            }
+        }
+
+        // Загрузка новостей
+        async function loadNews() {
+            try {
+                const response = await fetch(`news_${currentLang}.html`);
+                const newsHtml = await response.text();
+
+                // Парсим HTML новостей
+                const parser = new DOMParser();
+                const doc = parser.parseFromString(newsHtml, 'text/html');
+                const newsItems = Array.from(doc.querySelectorAll('h6'));
+
+                // Очищаем контейнер новостей, если это первая загрузка
+                if (newsIndex === 0) {
+                    document.getElementById('news_container').innerHTML = '';
+                }
+
+                // Подгружаем порцию новостей
+                const endIndex = Math.min(newsIndex + newsPageSize, newsItems.length);
+                for (let i = newsIndex; i < endIndex; i++) {
+                    //debugger;
+                    const item = newsItems[i];
+                    const content1 = item.nextElementSibling; // Первый параграф (информация о релизе)
+                    const content2 = content1 ? content1.nextElementSibling : null; // Второй параграф
+                    const content3 = content2 ? content2.nextElementSibling : null; // список изменений
+
+                    // Добавляем заголовок
+                    document.getElementById('news_container').appendChild(item.cloneNode(true));
+
+                    // Добавляем первый параграф
+                    if (content1) {
+                        document.getElementById('news_container').appendChild(content1.cloneNode(true));
+                    }
+
+                    // Добавляем список изменений
+                    if (content3) {
+                        document.getElementById('news_container').appendChild(content3.cloneNode(true));
+                    }
+                }
+
+                // Обновляем индекс
+                newsIndex = endIndex;
+
+                // Скрываем кнопку "Загрузить еще", если все новости загружены
+                const loadMoreBtn = document.getElementById('load_more_btn');
+                if (newsIndex >= newsItems.length) {
+                    loadMoreBtn.style.display = 'none';
+                } else {
+                    loadMoreBtn.style.display = 'block';
+                }
+            } catch (error) {
+                console.error('Ошибка загрузки новостей:', error);
+            }
+        }
+
+        // Подгрузка еще новостей
+        function loadMoreNews() {
+            loadNews();
+        }
+
+        // Загрузка галереи
+        async function loadGallery() {
+            try {
+                const response = await fetch(`gallery_${currentLang}.html`);
+                const galleryHtml = await response.text();
+
+                // Отображаем галерею
+                document.getElementById('gallery_images').innerHTML = galleryHtml;
+
+                // Добавляем обработчики кликов для изображений
+                const images = document.querySelectorAll('#gallery_images img');
+                images.forEach(img => {
+                    img.addEventListener('click', function () {
+                        openModal(this.src);
+                    });
+                });
+            } catch (error) {
+                console.error('Ошибка загрузки галереи:', error);
+            }
+        }
+
+        // Открытие модального окна с изображением
+        function openModal(src) {
+            document.getElementById('modalImage').src = src;
+            document.getElementById('imageModal').style.display = 'block';
+        }
+
+        // Закрытие модального окна
+        function closeModal() {
+            document.getElementById('imageModal').style.display = 'none';
+        }
+
+        // Закрытие модального окна при клике вне изображения
+        window.onclick = function (event) {
+            const modal = document.getElementById('imageModal');
+            if (event.target == modal) {
+                modal.style.display = 'none';
+            }
+        }
+
+        // Инициализация при загрузке страницы
+        document.addEventListener('DOMContentLoaded', function () {
+            loadStrings();
+            loadDownloads();
+            loadNews();
+            loadGallery();
+        });
+    </script>
 </body>
 </html>

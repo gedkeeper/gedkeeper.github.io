@@ -212,54 +212,26 @@ Full-Width Styles
 
 .inner {
   position: relative;
-  max-width: 640px;
+  max-width: 960px; /* Увеличена на 50% от оригинальной ширины */
   padding: 20px 10px;
   margin: 0 auto;
 }
 
 #forkme_banner {
-  display: block;
-  position: absolute;
-  top:0;
-  right: 10px;
+  display: inline-block;
+  position: relative;
+  top: 0;
+  right: 0;
   z-index: 10;
-  padding: 10px 50px 10px 10px;
+  padding: 5px 10px 5px 10px;
   color: #fff;
   background: url('../images/blacktocat.png') #0090ff no-repeat 95% 50%;
   font-weight: 700;
-  box-shadow: 0 0 10px rgba(0,0,0,.5);
-  border-bottom-left-radius: 2px;
-  border-bottom-right-radius: 2px;
-}
-
-#lang_banner {
-  display: block;
-  position: absolute;
-  top:0;
-  right: 200px;
-  z-index: 10;
-  padding: 10px 10px 10px 10px;
-  color: #fff;
-  background: #0090ff no-repeat 95% 50%;
-  font-weight: 700;
-  box-shadow: 0 0 10px rgba(0,0,0,.5);
-  border-bottom-left-radius: 2px;
-  border-bottom-right-radius: 2px;
-}
-
-#gall_banner {
-  display: block;
-  position: absolute;
-  top:0;
-  left: 0px;
-  z-index: 10;
-  padding: 10px 10px 10px 10px;
-  color: #fff;
-  background: #0090ff no-repeat 95% 50%;
-  font-weight: 700;
-  box-shadow: 0 0 10px rgba(0,0,0,.5);
-  border-bottom-left-radius: 2px;
-  border-bottom-right-radius: 2px;
+  font-size: 14px;
+  box-shadow: 0 0 5px rgba(0,0,0,.5);
+  border-radius: 2px;
+  margin-left: 20px;
+  text-decoration: none;
 }
 
 #header_wrap {
@@ -267,7 +239,7 @@ Full-Width Styles
 }
 
 #header_wrap .inner {
-  padding: 50px 10px 30px 10px;
+  padding: 40px 10px 24px 10px; /* Уменьшена на 20% от оригинальной высоты */
 }
 
 #project_title {
@@ -335,6 +307,17 @@ Full-Width Styles
   padding-top: 40px;
 }
 
+/* Стили для новых панелей */
+.panel {
+  background: #f2f2f2;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+.panel h2 {
+  margin-top: 0;
+}
+
 #footer_wrap {
   background: #212121;
 }
@@ -389,5 +372,10 @@ Small Device Styles
     min-width: 320px;
     max-width: 480px;
     font-size: 11px;
+  }
+  
+  /* Адаптивность для новых панелей */
+  .panel {
+    padding: 10px;
   }
 }
